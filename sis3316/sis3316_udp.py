@@ -30,7 +30,7 @@ import re
 from numpy import uint8
 
 from .common import Sis3316Except, sleep, usleep #FIXME
-from . import device, i2c, fifo, readout
+from . import device, i2c, fifo, readout, clkMultiplier
 
 
 #link interface
@@ -64,7 +64,7 @@ def retry_on_timeout(f):
     return wrapper
 
 
-class Sis3316(device.Sis3316, i2c.Sis3316, fifo.Sis3316, readout.Sis3316):
+class Sis3316(device.Sis3316, i2c.Sis3316, fifo.Sis3316, readout.Sis3316, clkMultiplier.Sis3316):
     """ A general implementation of sis3316 UPD-based protocol.
     """
     # Defaults:
